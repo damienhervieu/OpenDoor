@@ -1,35 +1,35 @@
-.container{
-  width: 100%;
+body {
+  min-height: 2000px;
 }
 
-.navbar-toggle {
-  border: none;
-  background: transparent !important;
+.navbar-static-top {
+  margin-bottom: 19px;
 }
-.navbar-toggle:hover {
-  background: transparent !important;
-}
+
 .navbar-toggle .icon-bar {
-  width: 22px;
   transition: all 0.2s;
 }
 .navbar-toggle .top-bar {
-  transform: rotate(45deg);
-  transform-origin: 10% 10%;
+  transform: rotate(-135deg);
+  margin: 6px 0 -12px 0;
 }
 .navbar-toggle .middle-bar {
   opacity: 0;
+  width: 0;
 }
 .navbar-toggle .bottom-bar {
-  transform: rotate(-45deg);
-  transform-origin: 10% 90%;
+  transform: rotate(135deg);
+  margin-bottom: 6px;
 }
 .navbar-toggle.collapsed .top-bar {
   transform: rotate(0);
+  margin: 0;
 }
 .navbar-toggle.collapsed .middle-bar {
   opacity: 1;
+  width: 100%;
 }
 .navbar-toggle.collapsed .bottom-bar {
   transform: rotate(0);
+  margin-bottom: 0;
 }
