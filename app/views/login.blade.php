@@ -24,8 +24,8 @@
 	
 
 	<div class="container-fluid">
-		<h1>Horizontal Form</h1>
-		<div class="form-wrap">
+		<h1 class="text-center">Sign in</h1>
+		<div class="form-wrap col-sm-4 col-md-10 col-md-offset-3">
 			{{ Form::open(array('class' => 'form-horizontal')) }}
 	  			<div class="form-group">
 					<label for="email" class="col-sm-2 control-label">Email</label>

@@ -20,7 +20,7 @@ class HomeController extends BaseController {
 		return View::make('home');
 	}
 
-	public function postHome(){
+	public function logHome(){
 		DB::table('logs')->insert(
 			array(
 				'name' => Auth::user()->name,
@@ -31,8 +31,11 @@ class HomeController extends BaseController {
 				'created_at' => Carbon::now('Europe/Paris')
 			)
 		);
+	}
 
-		return Redirect::to('/');
+	public function getOpenDoor(){
+		$output = shell_exec('python /var/www/html/script/opendoor.py');
+		echo "<pre>$output</pre>";
 	}
 
 }

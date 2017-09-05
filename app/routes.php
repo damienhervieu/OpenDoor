@@ -13,7 +13,9 @@
 
 Route::get('/', array('before' => 'auth|firstLogin|authRemember', 'uses' => 'HomeController@getHome'));
 
-Route::post('/open-door', array('before' => 'csrf', 'uses' => 'HomeController@postHome'));
+Route::get('/open-door', array('uses' => 'HomeController@logHome'));
+
+Route::get('/open.php', array('uses' => 'HomeController@getOpenDoor'));
 
 Route::get('/password-change', array('before' => 'auth', 'uses' => 'AuthController@getPasswordChange'));
 
