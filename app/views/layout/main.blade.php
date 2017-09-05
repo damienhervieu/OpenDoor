@@ -31,13 +31,14 @@
         	</div>
         	<div id="navbar" class="navbar-collapse collapse">
           		<ul class="nav navbar-nav">
-	        		<li><a href="{{ URL::to('/') }}">Home</a></li>
 					@if ((Auth::user()->permission) == 'admin')
 						<li><a href="{{ URL::to('/manage-users') }}">Manage Users</a></li>
 						<li><a href="{{ URL::to('/open-door-logs') }}">Open Door Logs</a></li>
 						<li><a href="{{ URL::to('/complete-logs') }}">Complete Logs</a></li>
 					@endif
-					<li><a href="{{ URL::to('/logout') }}">Logout</a></li>
+          		</ul>
+          		<ul class="nav navbar-nav pull-right">
+          			<li><a href="{{ URL::to('/logout') }}">Logout</a></li>
           		</ul>
         	</div><!--/.nav-collapse -->
       	</div>

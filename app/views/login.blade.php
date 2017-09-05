@@ -1,23 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
-	<meta charset="utf-8">
+	<title>Login</title>	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
 	@foreach($errors->all() as $error)
 		<p class="error">{{ $error }}</p>
 	@endforeach
 	
-	{{ Form::open(array('class' => 'form-horizontal')) }}
-		<input type="email" name="email" placeholder="Email"><br>
+	
+		<!-- <input type="email" name="email" placeholder="Email"><br>
 		<input type="password" name="password" placeholder="Password"><br>
 		<input type="checkbox" name="remember" value="true">Remember me
-		<input type="submit" value="Sign In"><br>
-	{{ Form::close() }}	
+		<input type="submit" value="Sign In"><br> -->
+	
+
+	<div class="container-fluid">
+		<h1>Horizontal Form</h1>
+		<div class="form-wrap">
+			{{ Form::open(array('class' => 'form-horizontal')) }}
+	  			<div class="form-group">
+					<label for="email" class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-4">
+		  				<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+					</div>
+	  			</div>
+	  			<div class="form-group">
+					<label for="password" class="col-sm-2 control-label">Password</label>
+					<div class="col-sm-4">
+		  				<input type="password" class="form-control" name="password" id="password" placeholder="Password">
+					</div>
+	  			</div>
+	  			<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-4">
+		  				<div class="checkbox">
+							<label>
+			  					<input type="checkbox" name="remember" value="true"> Remember me
+							</label>
+		  				</div>
+					</div>
+	  			</div>
+	  			<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-4">
+		  				<button type="submit" class="btn btn-default">Sign in</button>
+					</div>
+	  			</div>
+			{{ Form::close() }}
+    	</div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
