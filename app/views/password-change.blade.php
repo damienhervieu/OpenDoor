@@ -20,7 +20,7 @@
 	@endforeach
 
 	<div class="container-fluid">
-		<h1 class="text-center">Open Door - Change your password</h1>
+		<h2 class="text-center">Open Door - Change your password</h2>
 		<hr class="separator">
 		<div class="form-wrap col-sm-4 col-md-10 col-md-offset-3">
 			{{ Form::open(array('class' => 'form-horizontal')) }}

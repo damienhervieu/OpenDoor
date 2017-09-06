@@ -10,7 +10,7 @@
 	@endforeach
 	
 	<div class="container-fluid">
-		<h1 class="text-center">Add a user to Open Door</h1>
+		<h2 class="text-center">Add a user to Open Door</h2>
 		<hr class="separator">
 		<div class="form-wrap col-sm-4 col-md-10 col-md-offset-3 vcenter">
 			{{ Form::open(array('class' => 'form-horizontal')) }}

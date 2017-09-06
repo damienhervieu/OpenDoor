@@ -24,7 +24,7 @@
 
 @section('content')
 	<div class="container-fluid">
-		<h1 class="text-center">Do you really want to reset the password of {{ $user->email }} ?</h1>
+		<h2 class="text-center">Do you really want to reset the password of {{ $user->email }} ?</h2>
 		<hr class="separator">
 		<div class="form-wrap text-center">
 			{{ Form::open(array('class' => 'form-inline', 'method' => 'post')) }}

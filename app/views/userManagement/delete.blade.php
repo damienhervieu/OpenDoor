@@ -25,7 +25,7 @@
 @section('content')
 	
 	<div class="container-fluid">
-		<h1 class="text-center">Do you really want to delete the account of {{ $user->email }} ?</h1>
+		<h2 class="text-center">Do you really want to delete the account of {{ $user->email }} ?</h2>
 		<hr class="separator">
 		<div class="form-wrap text-center">
 			{{ Form::open(array('class' => 'form-inline', 'method' => 'post')) }}
