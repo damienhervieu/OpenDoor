@@ -4,13 +4,41 @@
 	Reset a password
 @stop
 
-@section('content')
-	<h1>Do you really want to reset the password of {{ $user->email }} ?</h1>
-	{{ Form::open(array('method' => 'post')) }}
-		<input type="submit" value="Yes">
-	{{ Form::close() }}
-	{{ Form::open(array('method' => 'get', 'url' => '/manage-users')) }}
-		<input type="submit" value="No">
-	{{ Form::close() }}
+@section('head')
+	<style type="text/css">
+		a{
+		    color: white;
+		    text-decoration: none;
+		}
 
+		a:link{
+			text-decoration: none;
+		}
+
+		a:hover{
+			color: inherit;
+		}
+
+	</style>
+@stop
+
+@section('content')
+	<div class="container-fluid">
+		<h1 class="text-center">Do you really want to reset the password of {{ $user->email }} ?</h1>
+		<hr class="separator">
+		<div class="form-wrap text-center">
+			{{ Form::open(array('class' => 'form-inline', 'method' => 'post')) }}
+		  			<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-4">
+			  				<button type="radio" name="reset" class="btn btn-primary" value="yes">Yes</button>
+						</div>
+		  			</div>
+		  			<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-4">
+			  				<button type="radio" name="reset" class="btn btn-primary" value="no">No</button>
+						</div>
+		  			</div>
+			{{ Form::close() }}
+    	</div>
+    </div>
 @stop

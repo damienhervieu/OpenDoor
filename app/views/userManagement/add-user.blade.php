@@ -9,11 +9,39 @@
 		<p class="error">{{ $error }}</p>
 	@endforeach
 	
-	{{ Form::open() }}
-		<input type="text" name="name" placeholder="Name"><br>
-		<input type="email" name="email" placeholder="Email"><br>
-		<input type="radio" name="permission" value="admin">Administrator</input>
-		<input type="radio" name="permission" value="member" checked>Member</input>
-		<input type="submit" value="Add user">
-	{{ Form::close()}}
+	<div class="container-fluid">
+		<h1 class="text-center">Add a user to Open Door</h1>
+		<hr class="separator">
+		<div class="form-wrap col-sm-4 col-md-10 col-md-offset-3 vcenter">
+			{{ Form::open(array('class' => 'form-horizontal')) }}
+	  			<div class="form-group">
+					<label for="name" class="col-sm-2 control-label">Name</label>
+					<div class="col-sm-4">
+		  				<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+					</div>
+	  			</div>
+	  			<div class="form-group">
+					<label for="email" class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-4">
+		  				<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+					</div>
+	  			</div>
+	  			<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-4">
+		  				<div class="radio-inline">
+							<label><input type="radio" name="permission" value="admin"> Administrator</label>
+						</div>
+		  				<div class="radio-inline">
+		  					<label><input type="radio" name="permission" value="member"> Member</label>
+		  				</div>
+					</div>
+	  			</div>
+	  			<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-4">
+		  				<button type="submit" class="btn btn-primary">Add User</button>
+					</div>
+	  			</div>
+			{{ Form::close() }}
+    	</div>
+    </div>
 @stop

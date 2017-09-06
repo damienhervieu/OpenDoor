@@ -25,7 +25,7 @@
 		<input type="submit" value="Sign In"><br> -->
 	
 
-	<div class="container">
+	<div class="container-fluid">
 		<h1 class="text-center">Open Door - Sign in</h1>
 		<hr class="separator">
 		<div class="form-wrap col-sm-4 col-md-10 col-md-offset-3 vcenter">

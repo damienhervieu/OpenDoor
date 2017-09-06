@@ -26,6 +26,4 @@
 			</tr>
 		@endforeach
 	</table>
-
-	{{ $logs->links() }}
 @stop

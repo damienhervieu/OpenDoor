@@ -105,22 +105,27 @@ class UserManagementController extends BaseController {
 	}
 
 	public function postResetPassword($id){
-		$random_password = str_random(8);
+		if ((Input::get('reset')) == 'yes') {
+			$random_password = str_random(8);
 
-		$user = User::find($id);
+			$user = User::find($id);
+			
+			Mail::send('emails.reset-password', array('user' => $user, 'random_password' => $random_password), function($message) use ($user){
+	        	$message->to($user->email, $user->name)->subject('Your password has been reset!');
+	    	});
+
+			$message = "Reset the password of ".$user->email;
+			self::insertLogs($message);
+
+			$user->password = Hash::make($random_password);
+			$user->password_changed = false;
+			$user->save();
+
+			return Redirect::to('manage-users');
+		} elseif ((Input::get('reset')) == 'no') {
+			return Redirect::to('manage-users');
+		}
 		
-		Mail::send('emails.reset-password', array('user' => $user, 'random_password' => $random_password), function($message) use ($user){
-        	$message->to($user->email, $user->name)->subject('Your password has been reset!');
-    	});
-
-		$message = "Reset the password of ".$user->email;
-		self::insertLogs($message);
-
-		$user->password = Hash::make($random_password);
-		$user->password_changed = false;
-		$user->save();
-
-		return Redirect::to('manage-users');
 	}
 	/* END OF THE CONTROLLER TO RESET A USER'S PASSWORD*/
 
@@ -133,13 +138,17 @@ class UserManagementController extends BaseController {
 	}
 
 	public function postDelete($id){
-		$user = User::find($id);
-		$user->delete();
+		if((Input::get('delete')) == 'yes'){
+			$user = User::find($id);
+			$user->delete();
 
-		$message = "Deleted the account of ".$user->email;
-		self::insertLogs($message);
+			$message = "Deleted the account of ".$user->email;
+			self::insertLogs($message);
 
-		return Redirect::to('manage-users');
+			return Redirect::to('manage-users');
+		} elseif ((Input::get('delete')) == 'no') {
+			return Redirect::to('manage-users');
+		}
 	}
 	/* END OF THE CONTROLLER TO DELETE A USER*/
 

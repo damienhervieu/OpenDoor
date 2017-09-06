@@ -9,7 +9,7 @@
 
 	<p>Following your demand an administrator has reset your password.<br>
 	Your temporary password is : {{ $random_password }}.<br>
-	<a href="http://www.localhost/OpenDoor/login">Click here</a> to sign in to your account and change your password.<br>
+	<a href="http://www.192.168.1.86/OpenDoor/login">Click here</a> to sign in to your account and change your password.<br>
 	<br>
 	Best regards.<br>
 	The FM-Games Team
