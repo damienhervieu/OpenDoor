@@ -19,7 +19,7 @@ class CreateLogs extends Migration {
 			$table->string('email', 100);
 			$table->string('action', 100);
 			$table->string('ip', 100);
-			$table->string('user_agent', 100);
+			$table->string('user_agent', 150);
 			$table->timestamps();
 		});
 	}

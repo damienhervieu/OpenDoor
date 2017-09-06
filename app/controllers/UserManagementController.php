@@ -17,12 +17,12 @@ class UserManagementController extends BaseController {
 	}
 
 	public function getOpenDoorLogs(){
-		$logs = DB::table('logs')->where('action', '=', 'Opened the door')->get();
+		$logs = DB::table('logs')->where('action', '=', 'Opened the door')->paginate(15);
 		return View::make('logs')->with('logs', $logs);
 	}
 
 	public function getCompleteLogs(){
-		$logs = DB::table('logs')->get();
+		$logs = DB::table('logs')->paginate(10);
 		return View::make('logs')->with('logs', $logs);
 	}
 

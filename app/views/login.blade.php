@@ -10,6 +10,8 @@
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('/public/css/form.css') }}">
 </head>
 <body>
 	@foreach($errors->all() as $error)
@@ -23,9 +25,10 @@
 		<input type="submit" value="Sign In"><br> -->
 	
 
-	<div class="container-fluid">
-		<h1 class="text-center">Sign in</h1>
-		<div class="form-wrap col-sm-4 col-md-10 col-md-offset-3">
+	<div class="container">
+		<h1 class="text-center">Open Door - Sign in</h1>
+		<hr class="separator">
+		<div class="form-wrap col-sm-4 col-md-10 col-md-offset-3 vcenter">
 			{{ Form::open(array('class' => 'form-horizontal')) }}
 	  			<div class="form-group">
 					<label for="email" class="col-sm-2 control-label">Email</label>
@@ -50,7 +53,7 @@
 	  			</div>
 	  			<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-4">
-		  				<button type="submit" class="btn btn-default">Sign in</button>
+		  				<button type="submit" class="btn btn-primary">Sign in</button>
 					</div>
 	  			</div>
 			{{ Form::close() }}
