@@ -7,7 +7,7 @@ class UsersTableSeeder extends Seeder {
 		$users = array(
 			array(
 				'name' => 'Emmanuel',
-				'email' => 'emmanuel@fm-games.com',
+				'email' => 'emmanuel@koundou-noviga.com',
 				'password' => Hash::make('emmanuel'),
 				'password_changed' => true,
 				'permission' => 'admin',
