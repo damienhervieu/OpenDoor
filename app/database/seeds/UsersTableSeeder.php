@@ -9,9 +9,17 @@ class UsersTableSeeder extends Seeder {
 				'name' => 'Emmanuel',
 				'email' => 'emmanuel@koundou-noviga.com',
 				'password' => Hash::make('emmanuel'),
-				'password_changed' => true,
+				'password_changed' => false,
 				'permission' => 'admin',
 				'created_at' => Carbon::now('Europe/Paris')
+			),
+			array(
+				'name' => 'Sophie',
+				'email' => 'sophie@fm-games.com',
+				'password' => Hash::make('sophie'),
+				'password_changed' => false,
+				'permission' => admin,
+				'created_at' => Carbon::now('Europe\Paris')
 			)
 		);
 		DB::table('users')->insert($users);
