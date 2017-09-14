@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder {
 				'email' => 'sophie@fm-games.com',
 				'password' => Hash::make('sophie'),
 				'password_changed' => false,
-				'permission' => admin,
+				'permission' => 'admin',
 				'created_at' => Carbon::now('Europe\Paris')
 			)
 		);
