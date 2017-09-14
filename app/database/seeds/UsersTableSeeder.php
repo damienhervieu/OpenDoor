@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder {
 				'password' => Hash::make('sophie'),
 				'password_changed' => false,
 				'permission' => 'admin',
-				'created_at' => Carbon::now('Europe\Paris')
+				'created_at' => Carbon::now('Europe/Paris')
 			)
 		);
 		DB::table('users')->insert($users);
