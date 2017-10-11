@@ -12,7 +12,7 @@
 	<a href="http://www.192.168.1.86/OpenDoor/login">Click here</a> to sign in to your account and change your password.<br>
 	<br>
 	Best regards.<br>
-	The FM-Games Team
+	The Cool Office
 	</p>
 
 </body>

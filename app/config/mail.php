@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'noreply@fm-games.com', 'name' => 'FM-Games'),
+	'from' => array('address' => 'noreply@fm-games.com', 'name' => 'Cool Office'),
 
 	/*
 	|--------------------------------------------------------------------------
