@@ -23,6 +23,9 @@
 @stop
 
 @section('content')
+	@foreach($errors->all() as $error)
+		<div class="alert alert-danger" role='alert'>{{ $error }}</p>
+	@endforeach
 	
 	<div class="container-fluid">
 		<h2 class="text-center">Do you really want to delete the account of {{ $user->email }} ?</h2>

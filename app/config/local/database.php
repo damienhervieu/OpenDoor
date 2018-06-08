@@ -25,7 +25,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'koundounoviga-opendoor',
 			'username'  => 'root',
-			'password'  => 'HLk(=8nD3P',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

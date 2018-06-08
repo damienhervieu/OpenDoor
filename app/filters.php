@@ -106,9 +106,9 @@ Route::filter('authRemember', function(){
 	if (Auth::viaRemember()) {
 		DB::table('logs')->insert(
 			array(
-				'name' => Auth::user()->name,
-				'email' => Auth::user()->email,
-				'action' => "Logged in via Remember Me",
+				'changer_id' => Auth::id(),
+				'action_id' => 2,
+				'target_id' => 0,
 				'ip' => Request::ip(),
 				'user_agent' => Request::header('User-Agent'),
 				'created_at' => Carbon::now('Europe/Paris')

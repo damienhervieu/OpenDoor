@@ -2,12 +2,12 @@
 
 class AuthController extends BaseController {
 
-	public function insertLogs($message){
+	public function insertLogs($action, $target){
 		DB::table('logs')->insert(
 			array(
-				'name' => Auth::user()->name,
-				'email' => Auth::user()->email,
-				'action' => $message,
+				'changer_id' => Auth::user()->id,
+				'action_id' => $action,
+				'target_id' => $target,
 				'ip' => Request::ip(),
 				'user_agent' => Request::header('User-Agent'),
 				'created_at' => Carbon::now('Europe/Paris')
@@ -34,8 +34,9 @@ class AuthController extends BaseController {
 			$user->password_changed = true;
 			$user->save();
 
-			$message = "Changed password";
-			self::insertLogs($message);
+			$action = 3/*"Changed password"*/;
+			$target = 0;
+			self::insertLogs($action, $target);
 
 			return Redirect::to('/');
 		}
@@ -65,8 +66,9 @@ class AuthController extends BaseController {
 			));
 		}
 		
-		$message = "Logged in via email and password";
-		self::insertLogs($message);
+		$action = 1/*"Logged in via email and password"*/;
+		$target = 0;
+		self::insertLogs($action, $target);
 
 		return Redirect::to('/');
 	}
@@ -74,8 +76,9 @@ class AuthController extends BaseController {
 
 
 	public function getLogout(){
-		$message = "Logged out";
-		self::insertLogs($message);
+		$action = 5/*"Logged out"*/;
+		$target = 0;
+		self::insertLogs($action, $target);
 		Auth::logout();
 		return Redirect::to('/login');
 	}

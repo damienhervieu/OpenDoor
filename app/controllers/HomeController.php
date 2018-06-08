@@ -2,19 +2,6 @@
 
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
 	public function getHome()
 	{
 		return View::make('home');
@@ -23,9 +10,9 @@ class HomeController extends BaseController {
 	public function logHome(){
 		DB::table('logs')->insert(
 			array(
-				'name' => Auth::user()->name,
-				'email' => Auth::user()->email,
-				'action' => 'Opened the door',
+				'changer_id' => Auth::user()->id,
+				'action_id' => 4,
+				'target_id' => 0,
 				'ip' => Request::ip(),
 				'user_agent' => Request::header('User-Agent'),
 				'created_at' => Carbon::now('Europe/Paris')

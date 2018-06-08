@@ -15,11 +15,16 @@ class CreateLogs extends Migration {
 		Schema::create('logs', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name', 100);
-			$table->string('email', 100);
-			$table->string('action', 100);
-			$table->string('ip', 100);
-			$table->string('user_agent', 150);
+			$table->smallInteger('changer_id')->unsigned();
+			$table->foreign('changer_id')->references('id')->on('users');
+			$table->smallInteger('action_id')->unsigned();
+			$table->foreign('action_id')->references('id')->on('action_logs');
+			$table->smallInteger('target_id')->unsigned()->default(0);
+			$table->foreign('target_id')->references('id')->on('users');
+			$table->string('old_value')->nullable()->default(null);
+			$table->string('new_value')->nullable()->default(null);
+			$table->string('ip', 15);
+			$table->string('user_agent');
 			$table->timestamps();
 		});
 	}

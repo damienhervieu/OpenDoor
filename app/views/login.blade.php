@@ -16,7 +16,7 @@
 </head>
 <body>
 	@foreach($errors->all() as $error)
-		<p class="error">{{ $error }}</p>
+		<div class="alert alert-danger" role='alert'>{{ $error }}</p>
 	@endforeach
 	
 	
