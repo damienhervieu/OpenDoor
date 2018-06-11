@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-	<a href="{{ URL::to('manage-users/add-user') }}"><button>Add a user</button></a>
+	<a href="{{ URL::to('manage-users/add-user') }}"><button class="btn btn-primary">Add a user</button></a>
 	<table class="table table-bordered table-responsive">
 		<tr>
 			<th>Name</th>

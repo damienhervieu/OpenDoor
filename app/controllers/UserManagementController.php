@@ -19,51 +19,87 @@ class UserManagementController extends BaseController {
 	}
 
 	/* CONTROLLER TO GET OPEN DOOR LOGS PAGE*/
-	public function getOpenDoorLogs(){
+	public function getOpenDoorLogs($id = null){
 		$logs = Logs::where('action_id', '=', 4)->orderBy('created_at', 'desc')->paginate(20);
-		$userUrl = null;
-		return View::make('logs')->with('logs', $logs)->with('userUrl', $userUrl);
+		return View::make('logs')->with('logs', $logs);
 	}
 
 	/* CONTROLLER TO GET THE USER MANAGEMENT LOGS PAGE*/
-	public function getUserManagementLogs(){
+	public function getUserManagementLogs($id = null){
 		$logs = Logs::where('action_id', '>', 5)->orderBy('created_at', 'desc')->paginate(20);
 		return View::make('logs')->with('logs', $logs);
 	}
 
 	/* CONTROLLER TO GET THE ADDED USERS LOGS PAGE*/
-	public function getAddedUsersLogs(){
-		$logs = Logs::where('action_id', '=', 6)->orderBy('created_at', 'desc')->paginate(20);
-		return View::make('logs')->with('logs', $logs);
+	public function getAddedUsersLogs($id = null){
+		if (!$id) {
+			$logs = Logs::where('action_id', '=', 6)->orderBy('created_at', 'desc')->paginate(20);
+			return View::make('logs')
+				->with('logs', $logs)
+				->with('id', $id);
+		} else {
+			$logs = Logs::where('action_id', '=', 6)->where('changer_id', '=', $id)->orderBy('created_at', 'desc')->paginate(20);
+			return View::make('logs')
+				->with('logs', $logs)
+				->with('id', $id);
+		}
 	}
 
 	/* CONTROLLER TO GET THE MODIFIED USERS LOGS PAGE*/
-	public function getModifiedUsersLogs(){
-		$logs = Logs::whereBetween('action_id', [6, 8])->orderBy('created_at', 'desc')->paginate(20);
-		return View::make('logs')->with('logs', $logs);
+	public function getModifiedUsersLogs($id = null){
+		if (!$id) {
+			$logs = Logs::whereBetween('action_id', [6, 8])->orderBy('created_at', 'desc')->paginate(20);
+			return View::make('logs')
+				->with('logs', $logs)
+				->with('id', $id);
+		} else {
+			$logs = Logs::whereBetween('action_id', [6, 8])->where('changer_id', '=', $id)->orderBy('created_at', 'desc')->paginate(20);
+			return View::make('logs')
+				->with('logs', $logs)
+				->with('id', $id);
+		}
 	}
 
 	/* CONTROLLER TO GET THE RESET USERS LOGS PAGE*/
-	public function getResetUsersLogs(){
-		$logs = Logs::where('action_id', '=', 10)->orderBy('created_at', 'desc')->paginate(20);
-		return View::make('logs')->with('logs', $logs);
+	public function getResetUsersLogs($id = null){
+		if (!$id) {
+			$logs = Logs::where('action_id', '=', 10)->orderBy('created_at', 'desc')->paginate(20);
+			return View::make('logs')
+				->with('logs', $logs)
+				->with('id', $id);
+		} else {
+			$logs = Logs::where('action_id', '=', 10)->where('changer_id', '=', $id)->orderBy('created_at', 'desc')->paginate(20);
+			return View::make('logs')
+				->with('logs', $logs)
+				->with('id', $id);
+		}
 	}
 
 	/* CONTROLLER TO GET THE DELETED USERS LOGS PAGE*/
-	public function getDeletedUsersLogs(){
-		$logs = Logs::where('action_id', '=', 11)->orderBy('created_at', 'desc')->paginate(20);
-		return View::make('logs')->with('logs', $logs);
+	public function getDeletedUsersLogs($id = null){
+		if (!$id) {
+			$logs = Logs::where('action_id', '=', 11)->orderBy('created_at', 'desc')->paginate(20);
+			return View::make('logs')
+				->with('logs', $logs)
+				->with('id', $id);
+		} else {
+			$logs = Logs::where('action_id', '=', 11)->where('changer_id', '=', $id)->orderBy('created_at', 'desc')->paginate(20);
+			return View::make('logs')
+				->with('logs', $logs)
+				->with('id', $id);
+		}
 	}
 
 	/* CONTROLLER TO GET THE COMPLETE LOGS PAGE*/
-	public function getCompleteLogs(){
+	public function getCompleteLogs($id = null){
 		$logs = Logs::with('action', 'changer', 'target')->orderBy('created_at', 'desc')->paginate(20);
-		/*$logs = DB::table('logs')->paginate(10);*/
-		return View::make('logs')->with('logs', $logs);
+		return View::make('logs')
+			->with('logs', $logs)
+			->with('id', $id);
 	}
 
 	/* CONTROLLER TO GET THE MANAGE USERS PAGE*/
-	public function getManageUsers(){
+	public function getManageUsers($id = null){
 		$users = User::all();
 		return View::make('manage-users')->with('users', $users);
 	}
@@ -71,8 +107,9 @@ class UserManagementController extends BaseController {
 	/* CONTROLLER TO GET THE USERS LOGS PAGE*/
 	public function getUserLogs($id){
 		$logs = Logs::where('changer_id', '=', $id)->orderBy('created_at', 'desc')->paginate(20);
-		$userUrl = 'user-logs/'.$id;
-		return View::make('logs')->with('logs', $logs)->with('userUrl', $userUrl);
+		return View::make('logs')
+			->with('logs', $logs)
+			->with('id', $id);
 	}
 
 

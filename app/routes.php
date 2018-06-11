@@ -80,13 +80,13 @@ Route::get('/open-door-logs', array('before' => 'auth|isAdmin|firstLogin', 'uses
 
 Route::get('/user-management-logs', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getUserManagementLogs'));
 
-Route::get('/added-users-logs', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getAddedUsersLogs'));
+Route::get('/added-users-logs/{id?}', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getAddedUsersLogs'));
 
-Route::get('/modified-users-logs', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getModifiedUsersLogs'));
+Route::get('/modified-users-logs/{id?}', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getModifiedUsersLogs'));
 
-Route::get('/reset-users-logs', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getResetUsersLogs'));
+Route::get('/reset-users-logs/{id?}', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getResetUsersLogs'));
 
-Route::get('/deleted-users-logs', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getDeletedUsersLogs'));
+Route::get('/deleted-users-logs/{id?}', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getDeletedUsersLogs'));
 
 Route::get('/complete-logs', array('before' => 'auth|isAdmin|firstLogin', 'uses' => 'UserManagementController@getCompleteLogs'));
 
